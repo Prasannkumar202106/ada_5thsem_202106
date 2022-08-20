@@ -32,7 +32,7 @@ x = 400
 result = binary_search(arr, 0, len(arr)-1, x)
 #print the desired result or by seeing the inputs
 
-print("searching is done through binary search method")
+print("searching is done through recursion method")
  
 if result != -1:
     print("Element is present at index", str(result))
@@ -74,7 +74,7 @@ x = 100
 # for getting result printed
 result = binary_search(arr, x)
 
-print("searching is done through iterative search method")
+print("searching is done through iterative  method")
  
 if result != -1:
     print("Element is present at index", str(result))
