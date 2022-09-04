@@ -7,18 +7,18 @@ def merge(arr, l, m, r):
     n1 = m - l + 1
     n2 = r - m
  
-    #empty arrays
+    #temporary arrays
     O = [0] * (n1)
     U = [0] * (n2)
  
-    # Copy data to empty arrays O[] and U[]
+    # Copy data to temporary arrays O[] and U[]
     for i in range(0, n1):
         O[i] = arr[l + i]
  
     for j in range(0, n2):
         U[j] = arr[m + 1 + j]
  
-    # Merge the empty arrays back  contents of arr[l..r]
+    # Merge the temporary arrays back to contents of arr[l..r]
     i = 0     # Initial index of first subarray
     j = 0     # Initial index of second subarray
     k = l     # Initial index of merged subarray
