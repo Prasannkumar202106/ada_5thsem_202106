@@ -1,6 +1,6 @@
 # Implement Quick Sort algorithm with all the necessary functions
 def partition(arr, low, high):
-  # leftmost element as pivot
+  # rightmost element as pivot
   pivot = arr[high]
 
   # pointer 
