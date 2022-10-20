@@ -1,27 +1,37 @@
-#job sequencing problem with deadline
-#initialize the statment
-def printJobSequencing(arr,u):
-              n=len(arr)
-              for i in range(n):
-                  for j in range(n-1-i):
-                      if(arr[j][2]<arr[j+1][2]):
-                          arr[j],arr[j+1]=arr[j+1],arr[j]
-              result = [False]*u
-              job = ['-1']*u
-              for i in range(len(arr)):
-                  for j in range(min(u-1,arr[i][1]-1),-1,-1):
-                      if(result[j] is False):
-                          result[j] = True
-                          job[j] = arr[i][0]
-                          break
-              print(job)
-              #driver code to get the result of job with maximum profit
-arr =           [['j1',4,80],
-                ['j2',7,100],
-                ['j3',5,60],
-                ['j4',3,10],
-                ['j5',1,20]]    
-print("the maximum profit sequence of jobs")
-printJobSequencing(arr,5)
+#job sequencing problem with maxixmum profit and time deadline
+def jobsequencing(arr: list, m: int) -> list:
+    
+    
+    arr = sorted(arr, key=lambda i: i[1], reverse=True) 
+    print(arr)
+    count = 0 # for counting jobs added to sequence
+    job_sequence=[None]*m
+    for item in arr:
+        if count >= m:
+            break
+        i=0
+        for i in range(item[2]-1,-1,-1):
+            if job_sequence[i] == None:
+                job_sequence[i] = (item[0],item[1])
+                count+=1
+                break
+    
+    return job_sequence
 
-#here first input is job name,second one is deadline and third one is profit
+# Driver code:
+jobs = input("Enter jobs : ")   #taking  input (seperated by ",")
+jobs = list(jobs.split(','))  # creating list 
+
+profits = input("Enter profits : ") # taking profits input
+profits = list(profits.split(','))
+profits = [int(i) for i in profits]  #creating list
+
+deadlines = input("Enter deadlines :") # taking deadlines
+deadlines = list(deadlines.split(','))
+deadlines = [int(i) for i in deadlines] #creating list 
+
+
+# a data model arr to store list of tuples of jobs , profits , deadlines
+arr = [(jobs[i], profits[i], deadlines[i]) for i in range(len(jobs))]
+
+print(jobsequencing(arr, max(deadlines))) # calling the function jobsequencing..
