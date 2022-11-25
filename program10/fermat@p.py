@@ -1,4 +1,4 @@
-#write a program to cechk Primality Test using Fermat method #
+#write a program to check Primality Test using Fermat method #
 import random
 def fermat(n):#start the fermat function
     A = random.randint(1, n-1) #  A can have random number from 1 to p-1
